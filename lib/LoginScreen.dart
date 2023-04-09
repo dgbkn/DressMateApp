@@ -47,14 +47,13 @@ class _LoginViewState extends State<LoginView> {
 
       var details = {
         "grant_type": "password",
-        "client_id": "seedr_chrome",
         "type": "login",
         "username": user,
         "password": pass
       };
 
       final response = await post(
-        Uri.parse('https://www.seedr.cc/oauth_test/token.php'),
+        Uri.parse('https://www.devg.vom/oauth_test/token.php'),
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
