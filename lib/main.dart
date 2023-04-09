@@ -16,6 +16,7 @@ import 'package:notification_permissions/notification_permissions.dart';
 import 'package:notifications/notifications.dart';
 // import 'package:tflite/tflite.dart';
 import 'package:flutter_vision/flutter_vision.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -122,6 +123,13 @@ class _MyHomePageState extends State<MyHomePage> {
           openSettings: true);
   List? _result;
   FlutterVision vision = FlutterVision();
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(Uri.parse(
+        "https://teachablemachine.withgoogle.com/models/UdkLmoCJK/"))) {
+      throw Exception('Could not launch');
+    }
+  }
 
   void lodaModel() async {
     // await vision.loadTesseractModel(
@@ -263,6 +271,23 @@ class _MyHomePageState extends State<MyHomePage> {
                           // detectCloth(img);
                         },
                         child: Text("Try it For Free (Gallery)"),
+                      ),
+                      ElevatedButton(
+                        onPressed: () async {
+                          final ImagePicker picker = ImagePicker();
+
+                          // final List<XFile> images =
+                          //     await picker.pickMultiImage();
+
+                          final XFile? photo = await picker.pickImage(
+                              source: ImageSource.gallery);
+                          if (photo == null) {
+                            return null;
+                          }
+                          var img = File(photo!.path);
+                          // detectCloth(img);
+                        },
+                        child: Text("Try The Model"),
                       ),
                       ElevatedButton(
                         onPressed: () async {
