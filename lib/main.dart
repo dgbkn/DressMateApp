@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 // import 'dart:html';
 
 import 'package:day_night_switcher/day_night_switcher.dart';
@@ -54,7 +55,7 @@ class _MyAppState extends State<MyApp> {
           event.packageName!.contains("com.myntra")) {
         _log.add(event);
       }
-        print(event.toString());
+      print(event.toString());
     });
   }
 
@@ -131,9 +132,8 @@ class _MyHomePageState extends State<MyHomePage> {
         modelPath: 'assets/model.tflite',
         modelVersion: "yolov5",
         numThreads: 1,
-        useGpu: false);
+        useGpu: true);
   }
-
 
   void initState() {
     super.initState();
@@ -156,7 +156,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(() {
       _result = res;
+      print("RESULTS ARE ::" + res.toString());
     });
+  }
+
+  Widget theResult() {
+    if (_result == null) {
+      return SizedBox();
+    }
+
+    return Text(
+      _result.toString(),
+      style: GoogleFonts.bentham(
+        fontSize: 40,
+        fontWeight: FontWeight.bold,
+        color: Color(0xFF1976D2),
+      ),
+    );
   }
 
   @override
@@ -205,16 +221,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       SizedBox(
                         height: 20,
                       ),
-                      _result!.isNotEmpty
-                          ? Text(
-                              _result.toString(),
-                              style: GoogleFonts.bentham(
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF1976D2),
-                              ),
-                            )
-                          : SizedBox(),
+                      theResult(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
