@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     // startListening();
-    initPlatformState();
+    // initPlatformState();
   }
 
   // Platf0101orm messages are asynchronous, so we initialize in an async method.1
