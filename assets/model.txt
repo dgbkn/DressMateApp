@@ -1,0 +1,7 @@
+0 Pants
+1 Shorts
+2 Jackets_Vests
+3 Denim
+4 Shirts_Half
+5 Full TSHIRTS
+6 Jackets Coats
