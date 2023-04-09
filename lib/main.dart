@@ -273,20 +273,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("Try it For Free (Gallery)"),
                       ),
                       ElevatedButton(
-                        onPressed: () async {
-                          final ImagePicker picker = ImagePicker();
-
-                          // final List<XFile> images =
-                          //     await picker.pickMultiImage();
-
-                          final XFile? photo = await picker.pickImage(
-                              source: ImageSource.gallery);
-                          if (photo == null) {
-                            return null;
-                          }
-                          var img = File(photo!.path);
-                          // detectCloth(img);
-                        },
+                        onPressed: () {_launchUrl();},
                         child: Text("Try The Model"),
                       ),
                       ElevatedButton(
