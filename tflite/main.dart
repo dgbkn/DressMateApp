@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:dress_mate/tflite/classifier.dart';
+import 'package:dress_mate/tflite/classifier_quant.dart';
 import 'package:image/image.dart' as img;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';

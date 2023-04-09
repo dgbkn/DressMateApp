@@ -1,4 +1,4 @@
-import 'package:imageclassification/classifier.dart';
+import 'package:dress_mate/tflite/classifier.dart';
 import 'package:tflite_flutter_helper/tflite_flutter_helper.dart';
 
 class ClassifierQuant extends Classifier {

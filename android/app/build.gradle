@@ -81,7 +81,7 @@ dependencies {
     // implementation "org.tensorflow:tensorflow-android:+"
     // compile 'org.tensorflow:tensorflow-lite:+'
     // compile 'org.tensorflow:tensorflow-lite-gpu:+'
-    compile 'org.tensorflow:tensorflow-android:+'
+    // compile 'org.tensorflow:tensorflow-android:+'
 
 
 }
